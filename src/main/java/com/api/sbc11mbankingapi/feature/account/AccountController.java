@@ -1,5 +1,6 @@
 package com.api.sbc11mbankingapi.feature.account;
 
+import com.api.sbc11mbankingapi.feature.account.dto.AccountDetailResponse;
 import com.api.sbc11mbankingapi.feature.account.dto.CreateAccountRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,10 @@ public class AccountController {
 
     private final AccountService accountService;
 
+    @GetMapping("/{actNo}")
+    AccountDetailResponse findByActNo(@PathVariable String actNo) {
+        return accountService.findByActNo(actNo);
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping

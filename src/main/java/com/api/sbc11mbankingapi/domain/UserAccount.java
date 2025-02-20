@@ -20,8 +20,7 @@ public class UserAccount {
     @ManyToOne
     private User user;
 
-    @OneToOne
-
+    @OneToOne(cascade = CascadeType.PERSIST)// propagate save account
     private Account account;
 
     private Boolean isBlocked;
